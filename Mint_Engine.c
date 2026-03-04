@@ -47,7 +47,7 @@ Mat4 Mat4_mul(Mat4 a, Mat4 b){
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/__UTILITY-FUNCTIONS__/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
-void Mint_Initilize(){
+int Mint_Initilize(){
     f = 1.0f / tanf((90 * (3.14159 / 180.0)) / 2);
     Mat4 proj_temp = { f * ((float)H / (float)W), 0, 0, 0, 0, f, 0, 0, 0, 0, (dis + 0.1f)/(0.1f - dis), (2.0f*dis*0.1f)/(0.1f - dis), 0, 0, -1, 0};
     memcpy(&proj, &proj_temp,sizeof(Mat4));
@@ -58,6 +58,7 @@ void Mint_Initilize(){
     player.cam.z = 5.5;
     player.cam.x = -3.5;
     player.cam.y = -3.5;
+    return 0;
 }
 
 int Mint_tick(BUFFER* buffer){

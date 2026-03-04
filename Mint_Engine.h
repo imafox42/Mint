@@ -2,8 +2,14 @@
 
 #include "types.h"
 
-int Run_3D();
 TRI render(TRI t, CAM cam, bool rot);
+int Mint_Initilize();
+int Mint_tick(BUFFER* buffe);
+void Mint_Draw_model(float x, float y, float z, bool rot, BUFFER* buffer, MODEL* model);
+void Mint_Scale_model(float x, float y, float z, MODEL* in_model, MODEL* out_model);
+void Mint_Rotate_model(float rotation, AXIS axis, MODEL* in_model, MODEL* out_model);
+void Mint_Draw_hud_model(float x, float y, float z, BUFFER* buffer, MODEL* model);
+int Mint_Create_Object(Vec3 position, MODEL* model, BBOX* bound, int health, OBJ_type type, bool DO_DRAW);
 void render_buffer();
 void Isle_Buffer_TRI(TRI tri, BUFFER* buffer);
 void Rasterize_tri(TRI tri, BUFFER* buffer);
