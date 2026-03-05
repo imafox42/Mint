@@ -61,6 +61,13 @@ int Mint_Initilize(){
     return 0;
 }
 
+int Set_view_size(int width, int height){
+    H = height;
+    W = width;
+    realloc(RENDER_BUFFER.ren_buf, sizeof(unsigned long) * width * height);
+    realloc(Zbuff, sizeof(double) * width * height);
+}
+
 int Mint_tick(BUFFER* buffer){
     for(int i = 0; i < 500; i++) for(int j = 0; j < 500; j++) Zbuff[i][j] = 1e9;
     Mat4 cam_rotY = {cosf(player.cam.a),0,sinf(player.cam.a),0,0,1,0,0,-sinf(player.cam.a),0,cosf(player.cam.a),0,0,0,0,1};
